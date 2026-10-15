@@ -1,6 +1,10 @@
 export default {
   roots: ['<rootDir>/src'],
 
+  transformIgnorePatterns: [
+    "/node_modules/(?!puppeteer)"
+  ],
+
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
     '\\.(git|ttf|eot|svg|png)$': '<rootDir>/__mocks__/fileMock.js',

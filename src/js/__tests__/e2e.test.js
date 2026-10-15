@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+
 import { fork } from 'child_process';
 
 jest.setTimeout(30000);
@@ -7,9 +7,12 @@ describe('PopoverWidget Puppeteer E2E Tests', () => {
   let browser = null;
   let page= null;
   let server = null;
+  let puppeteer = null;
   const baseUrl = 'http://localhost:8080';
 
   beforeAll(async () => {
+    const puppeteerModule = await import('puppetter');
+    puppeteer = puppeteerModule.default || puppeteerModule;
     server = fork(`./src/js/__tests__/e2e.server.js`);
     await new Promise((resolve, reject) => {
       server.on('error', reject);
