@@ -11,7 +11,7 @@ describe('PopoverWidget Puppeteer E2E Tests', () => {
   const baseUrl = 'http://localhost:8080';
 
   beforeAll(async () => {
-    const puppeteerModule = await import('puppetter');
+    const puppeteerModule = await import('puppeteer');
     puppeteer = puppeteerModule.default || puppeteerModule;
     server = fork(`./src/js/__tests__/e2e.server.js`);
     await new Promise((resolve, reject) => {
